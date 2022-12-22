@@ -56,7 +56,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>My todo list</h1>
+        <h1>{this.props.title}</h1>
         <form onSubmit={this.add} className="form">
           <input type="text" />
           <input type="submit" value={'Add task'} />
