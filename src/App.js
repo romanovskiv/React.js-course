@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './components/Form';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate', this, 'prevProps:' + prevProps);
+    console.log('componentDidUpdate', this, 'prevProps:' + JSON.stringify(prevProps));
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -50,17 +51,14 @@ class App extends React.Component {
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('prevProps:' + prevProps, 'prevState:' + prevState);
+    console.log('prevProps:' + JSON.stringify(prevProps), 'prevState:' + JSON.stringify(prevState));
   }
 
   render() {
     return (
       <>
         <h1>{this.props.title}</h1>
-        <form onSubmit={this.add} className="form">
-          <input type="text" />
-          <input type="submit" value={'Add task'} />
-        </form>
+        <Form state={this.state} onSubmit={this.add} />
         <div className="list">
           {this.state.tasks.length > 0 && <h3>My tasks:</h3>}
           {this.state.tasks.map((task, id) => {
