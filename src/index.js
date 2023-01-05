@@ -4,4 +4,5 @@ import './index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App title={'My todo list'} />);
+root.render( < App title = { 'My todo list' }
+        />);
